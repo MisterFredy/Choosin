@@ -119,6 +119,7 @@ html {
 
 .menu-group {
   background: #fff;
+  margin-bottom: 50px;
 }
 
 .column-option {
@@ -139,7 +140,13 @@ html {
 
 .button-opsi {
   height: 100%;
-  font-size: 3rem;
+  font-size: 50px !important;
+  font-weight: bolder;
+}
+
+.count-opsi {
+  height: 100% !important;
+  font-size: 30px !important;
 }
 
 .button-opsi-padding {
@@ -147,7 +154,13 @@ html {
 }
 
 .button-incdec {
-  background: transparent;
+  background: transparent !important;
+  color: #fff !important;
+  font-size: 20px;
+}
+
+.button-incdec:hover {
+  background: transparent !important;
   color: #fff;
 }
 
@@ -628,10 +641,6 @@ a.booking-history-lihat {
     padding-top: 15px;
   }
 
-  .button-opsi {
-    font-size: 2rem;
-  }
-
   .detail-resto-nama {
     font-size: 30px;
     padding-bottom: 5px;
@@ -800,8 +809,13 @@ a.booking-history-lihat {
   }
 
   .button-opsi {
-    font-size: 1rem;
+    font-size: 30px !important;
+    font-weight: bolder;
     vertical-align: -10%;
+  }
+
+  .count-opsi {
+    font-size: 20px !important;
   }
 
   .current-location {
