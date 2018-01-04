@@ -1,20 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2018 at 09:26 AM
--- Server version: 5.6.20
--- PHP Version: 5.5.15
+-- Generation Time: Dec 19, 2017 at 06:25 PM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `choosin`
@@ -26,13 +28,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-CREATE TABLE IF NOT EXISTS `admin` (
-`id_admin` int(11) NOT NULL,
+CREATE TABLE `admin` (
+  `id_admin` int(11) NOT NULL,
   `nama` varchar(65) DEFAULT NULL,
   `username` varchar(60) DEFAULT NULL,
   `password` varchar(256) DEFAULT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `admin`
@@ -66,8 +68,8 @@ INSERT INTO `admin` (`id_admin`, `nama`, `username`, `password`, `status`) VALUE
 -- Table structure for table `booking`
 --
 
-CREATE TABLE IF NOT EXISTS `booking` (
-`id_booking` int(15) NOT NULL,
+CREATE TABLE `booking` (
+  `id_booking` int(15) NOT NULL,
   `id_user` int(11) NOT NULL,
   `kode` varchar(25) DEFAULT NULL,
   `tanggal` datetime DEFAULT NULL,
@@ -78,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `booking` (
   `keterangan` text,
   `status_bayar` tinyint(1) DEFAULT NULL,
   `metode_bayar` enum('transfer','payment_gateway') DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `booking`
@@ -122,14 +124,14 @@ INSERT INTO `booking` (`id_booking`, `id_user`, `kode`, `tanggal`, `atas_nama`, 
 -- Table structure for table `booking_detail`
 --
 
-CREATE TABLE IF NOT EXISTS `booking_detail` (
-`id_bookingdetail` int(11) NOT NULL,
+CREATE TABLE `booking_detail` (
+  `id_bookingdetail` int(11) NOT NULL,
   `id_booking` int(11) NOT NULL,
   `id_menu` int(11) NOT NULL,
   `jumlah` int(10) DEFAULT NULL,
   `total_harga` int(11) DEFAULT NULL,
   `status` tinyint(4) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `booking_detail`
@@ -183,11 +185,11 @@ INSERT INTO `booking_detail` (`id_bookingdetail`, `id_booking`, `id_menu`, `juml
 -- Table structure for table `jenis_masakan`
 --
 
-CREATE TABLE IF NOT EXISTS `jenis_masakan` (
-`id_jenis_masakan` int(11) NOT NULL,
+CREATE TABLE `jenis_masakan` (
+  `id_jenis_masakan` int(11) NOT NULL,
   `nama_jenis` varchar(50) DEFAULT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jenis_masakan`
@@ -211,15 +213,15 @@ INSERT INTO `jenis_masakan` (`id_jenis_masakan`, `nama_jenis`, `status`) VALUES
 -- Table structure for table `menu_makanan`
 --
 
-CREATE TABLE IF NOT EXISTS `menu_makanan` (
-`id_menu` int(11) NOT NULL,
+CREATE TABLE `menu_makanan` (
+  `id_menu` int(11) NOT NULL,
   `id_tempatmakan` int(11) NOT NULL,
   `nama_makanan` varchar(30) DEFAULT NULL,
   `harga` decimal(10,0) DEFAULT NULL,
   `foto` varchar(50) DEFAULT NULL,
   `status` tinyint(1) DEFAULT NULL,
   `id_jenis_masakan` int(11) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=80 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `menu_makanan`
@@ -310,11 +312,11 @@ INSERT INTO `menu_makanan` (`id_menu`, `id_tempatmakan`, `nama_makanan`, `harga`
 -- Table structure for table `migrations`
 --
 
-CREATE TABLE IF NOT EXISTS `migrations` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
@@ -330,7 +332,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- Table structure for table `password_resets`
 --
 
-CREATE TABLE IF NOT EXISTS `password_resets` (
+CREATE TABLE `password_resets` (
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
@@ -339,28 +341,15 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pembayaran`
---
-
-CREATE TABLE IF NOT EXISTS `pembayaran` (
-`id_bank` int(11) NOT NULL,
-  `nama_bank` varchar(20) NOT NULL,
-  `nama_rekening` varchar(30) NOT NULL,
-  `no_rekening` int(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `pemilik`
 --
 
-CREATE TABLE IF NOT EXISTS `pemilik` (
-`id_pemilik` int(11) NOT NULL,
+CREATE TABLE `pemilik` (
+  `id_pemilik` int(11) NOT NULL,
   `nama` varchar(65) DEFAULT NULL,
   `password` varchar(256) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `pemilik`
@@ -394,8 +383,8 @@ INSERT INTO `pemilik` (`id_pemilik`, `nama`, `password`, `status`) VALUES
 -- Table structure for table `tempat_makan`
 --
 
-CREATE TABLE IF NOT EXISTS `tempat_makan` (
-`id_tempatmakan` int(11) NOT NULL,
+CREATE TABLE `tempat_makan` (
+  `id_tempatmakan` int(11) NOT NULL,
   `nama_tempatmakan` varchar(64) DEFAULT NULL,
   `alamat` text,
   `foto` text,
@@ -404,7 +393,7 @@ CREATE TABLE IF NOT EXISTS `tempat_makan` (
   `longitude` double NOT NULL,
   `kontak` varchar(23) DEFAULT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=42 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tempat_makan`
@@ -457,8 +446,8 @@ INSERT INTO `tempat_makan` (`id_tempatmakan`, `nama_tempatmakan`, `alamat`, `fot
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-`id_user` int(10) NOT NULL,
+CREATE TABLE `users` (
+  `id_user` int(10) NOT NULL,
   `nama` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `no_hp` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -468,7 +457,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=54 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
@@ -537,67 +526,69 @@ INSERT INTO `users` (`id_user`, `nama`, `no_hp`, `email`, `jenis_kelamin`, `pass
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
- ADD PRIMARY KEY (`id_admin`);
+  ADD PRIMARY KEY (`id_admin`);
 
 --
 -- Indexes for table `booking`
 --
 ALTER TABLE `booking`
- ADD PRIMARY KEY (`id_booking`), ADD KEY `id_tempat_makan` (`id_tempat_makan`), ADD KEY `id_user` (`id_user`);
+  ADD PRIMARY KEY (`id_booking`),
+  ADD KEY `id_tempat_makan` (`id_tempat_makan`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indexes for table `booking_detail`
 --
 ALTER TABLE `booking_detail`
- ADD PRIMARY KEY (`id_bookingdetail`), ADD KEY `id_booking` (`id_booking`), ADD KEY `id_menu` (`id_menu`);
+  ADD PRIMARY KEY (`id_bookingdetail`),
+  ADD KEY `id_booking` (`id_booking`),
+  ADD KEY `id_menu` (`id_menu`);
 
 --
 -- Indexes for table `jenis_masakan`
 --
 ALTER TABLE `jenis_masakan`
- ADD PRIMARY KEY (`id_jenis_masakan`);
+  ADD PRIMARY KEY (`id_jenis_masakan`);
 
 --
 -- Indexes for table `menu_makanan`
 --
 ALTER TABLE `menu_makanan`
- ADD PRIMARY KEY (`id_menu`), ADD KEY `id_tempat_makan` (`id_tempatmakan`), ADD KEY `id_jenis_masakan` (`id_jenis_masakan`);
+  ADD PRIMARY KEY (`id_menu`),
+  ADD KEY `id_tempat_makan` (`id_tempatmakan`),
+  ADD KEY `id_jenis_masakan` (`id_jenis_masakan`);
 
 --
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
- ADD KEY `password_resets_email_index` (`email`);
-
---
--- Indexes for table `pembayaran`
---
-ALTER TABLE `pembayaran`
- ADD PRIMARY KEY (`id_bank`);
+  ADD KEY `password_resets_email_index` (`email`);
 
 --
 -- Indexes for table `pemilik`
 --
 ALTER TABLE `pemilik`
- ADD PRIMARY KEY (`id_pemilik`);
+  ADD PRIMARY KEY (`id_pemilik`);
 
 --
 -- Indexes for table `tempat_makan`
 --
 ALTER TABLE `tempat_makan`
- ADD PRIMARY KEY (`id_tempatmakan`), ADD KEY `id_pemilik` (`id_pemilik`);
+  ADD PRIMARY KEY (`id_tempatmakan`),
+  ADD KEY `id_pemilik` (`id_pemilik`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
- ADD PRIMARY KEY (`id_user`), ADD UNIQUE KEY `users_email_unique` (`email`);
+  ADD PRIMARY KEY (`id_user`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -607,52 +598,56 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
 --
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-MODIFY `id_booking` int(15) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
+  MODIFY `id_booking` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
 --
 -- AUTO_INCREMENT for table `booking_detail`
 --
 ALTER TABLE `booking_detail`
-MODIFY `id_bookingdetail` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
+  MODIFY `id_bookingdetail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
 --
 -- AUTO_INCREMENT for table `jenis_masakan`
 --
 ALTER TABLE `jenis_masakan`
-MODIFY `id_jenis_masakan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id_jenis_masakan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `menu_makanan`
 --
 ALTER TABLE `menu_makanan`
-MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=80;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `pembayaran`
---
-ALTER TABLE `pembayaran`
-MODIFY `id_bank` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `pemilik`
 --
 ALTER TABLE `pemilik`
-MODIFY `id_pemilik` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+  MODIFY `id_pemilik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
 --
 -- AUTO_INCREMENT for table `tempat_makan`
 --
 ALTER TABLE `tempat_makan`
-MODIFY `id_tempatmakan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=42;
+  MODIFY `id_tempatmakan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=54;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+
 --
 -- Constraints for dumped tables
 --
@@ -661,28 +656,29 @@ MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=54;
 -- Constraints for table `booking`
 --
 ALTER TABLE `booking`
-ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`id_tempat_makan`) REFERENCES `tempat_makan` (`id_tempatmakan`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `booking_ibfk_3` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`id_tempat_makan`) REFERENCES `tempat_makan` (`id_tempatmakan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `booking_ibfk_3` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `booking_detail`
 --
 ALTER TABLE `booking_detail`
-ADD CONSTRAINT `booking_detail_ibfk_1` FOREIGN KEY (`id_booking`) REFERENCES `booking` (`id_booking`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `booking_detail_ibfk_2` FOREIGN KEY (`id_menu`) REFERENCES `menu_makanan` (`id_menu`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `booking_detail_ibfk_1` FOREIGN KEY (`id_booking`) REFERENCES `booking` (`id_booking`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `booking_detail_ibfk_2` FOREIGN KEY (`id_menu`) REFERENCES `menu_makanan` (`id_menu`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `menu_makanan`
 --
 ALTER TABLE `menu_makanan`
-ADD CONSTRAINT `menu_makanan_ibfk_1` FOREIGN KEY (`id_tempatmakan`) REFERENCES `tempat_makan` (`id_tempatmakan`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `menu_makanan_ibfk_2` FOREIGN KEY (`id_jenis_masakan`) REFERENCES `jenis_masakan` (`id_jenis_masakan`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `menu_makanan_ibfk_1` FOREIGN KEY (`id_tempatmakan`) REFERENCES `tempat_makan` (`id_tempatmakan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `menu_makanan_ibfk_2` FOREIGN KEY (`id_jenis_masakan`) REFERENCES `jenis_masakan` (`id_jenis_masakan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tempat_makan`
 --
 ALTER TABLE `tempat_makan`
-ADD CONSTRAINT `tempat_makan_ibfk_1` FOREIGN KEY (`id_pemilik`) REFERENCES `pemilik` (`id_pemilik`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tempat_makan_ibfk_1` FOREIGN KEY (`id_pemilik`) REFERENCES `pemilik` (`id_pemilik`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

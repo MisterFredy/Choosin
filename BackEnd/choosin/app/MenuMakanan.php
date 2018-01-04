@@ -64,7 +64,7 @@ class MenuMakanan extends Model
         return $query;
     }
 
-    public static function Avg_harga(){
+    public static function Avg_harga($id){
         $query = DB::table('menu_makanan')
         ->where('id_tempatmakan',$id)
         ->avg('harga')

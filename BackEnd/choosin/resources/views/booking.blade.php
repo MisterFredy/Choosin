@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="uk-height-1-1">
+    <head>
+        <title>Booking</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="assets/css/uikit.min.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css/custom.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css/autocomplete.min.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css/datepicker.min.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css/datepicker.gradient.min.css" />
+
+    </head>
+    <body class="uk-height-1-1">
+
+    <nav class="uk-navbar navbar-trans">
+        <ul class="uk-navbar-nav">
+            <li><a href=""><i class="navbar-prev uk-icon-angle-left uk-icon-large"></i></a></li>
+        </ul>
+        <div class="uk-navbar-content uk-navbar-center uk-navbar-brand"><img src="assets/img/logo.png" width="100" height="43" alt="Navbar Image"></div>
+    </nav>
+
+    <div class="gambar-resto uk-width-1-1">
+      <div>
+        <img src="assets/img/resto1.jpg" alt="Foto Resto">
+      </div>
+    </div>
+
+    <p class="nama-resto uk-text-center">Bukit Indah Resto</p>
+
+    <form action="" method="POST" class="uk-form uk-text-center booking-form">
+      <div class="uk-form-row booking-group">
+        <p class="booking-label uk-text-center uk-text-large">Atas Nama</p>
+        <input class="booking-input uk-width-1-1 uk-form-large uk-form-width-large" type="search" placeholder="">
+      </div>
+      <div class="uk-form-row booking-group">
+        <p class="booking-label uk-text-center uk-text-large">Tanggal</p>
+        <input class="booking-input uk-width-1-1 uk-form-large uk-form-width-large" type="search" placeholder="" data-uk-datepicker="{format:'DD.MM.YYYY'}">
+      </div>
+      <div class="uk-form-row booking-group">
+        <p class="booking-label uk-text-center uk-text-large">Waktu</p>
+        <input class="booking-input uk-width-1-1 uk-form-large uk-form-width-large" type="search" placeholder="" data-uk-timepicker="{format:'24h'}">
+      </div>
+      <button class="booking-button uk-button uk-button-success" type="submit" name="submit" value="submit" type="button">Booking</button>
+    </form>
+
+    <!-- For Script -->
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/js/uikit.min.js"></script>
+    <script src="assets/js/autocomplete.min.js"></script>
+    <script src="assets/js/datepicker.min.js"></script>
+    <script src="assets/js/timepicker.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+    </body>
+</html>

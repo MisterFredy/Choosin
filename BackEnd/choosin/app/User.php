@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nama', 'email', 'password', 'no_hp', 'jenis_kelamin', 'status'
+        'name', 'email', 'password', 'no_hp', 'jenis_kelamin', 'status'
     ];
 
     /**
@@ -26,15 +26,4 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public static function loginuser($username,$password)
-    {
-        $query = $query =  DB::table('users')
-        ->where(['nama' => $username,'password' => $password])
-        ->get();
-            if($query){
-                return $query;
-            }else{
-                return false;
-            }
-    }
 }

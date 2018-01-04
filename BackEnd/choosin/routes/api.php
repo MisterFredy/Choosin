@@ -25,6 +25,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 ///////////////////////////////////////////////////
 
 //route Tempat Makan
+
+//Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/tempatmakan/{id}','tempatmakanCtrl@cari');
 Route::get('/tempatmakan', 'tempatmakanCtrl@index');
 Route::get('/tempatmakan/editform/{id}','tempatmakanCtrl@editform');
 Route::post('/tempatmakan/edit/{id}','tempatmakanCtrl@editform');
@@ -54,3 +58,7 @@ Route::get('/booking/delete/{id}','bookingCtrl@delete_booking');
 Route::post('/booking/buat/{id}','bookingCtrl@buat_booking');
 Route::post('/booking/metodebayar/{kode}','bookingCtrl@metode_pembayaran');
 Route::post('/booking/konfirmasi/{kode}','bookingCtrl@konfirmasi_pembayaran');
+
+Route::get('storage/menumakan/{filename}','filestorage@menumakanfile');
+Route::get('storage/tempatmakan/{filename}','filestorage@tempatmakanfile');
+Route::get('storage/userfile/{filename}','filestorage@userfile');

@@ -37,7 +37,7 @@ class tempatmakanCtrl extends Controller
         $inputan = array([
                 'nama_tempatmakan' => $nama,
                 'alamat' => $alamat,
-                'foto' => $filename,
+                'foto_tempat' => $filename,
                 'id_pemilik' => $idpemilik,
                 'latitude' => $latitude,
                 'longitude' => $longitude,
@@ -48,15 +48,9 @@ class tempatmakanCtrl extends Controller
         return Response::json("success",201);
     }
 
-    public function cari($kriteria,$input){
-    if($kriteria = "nama"){
-        $data = array([
-            'nama' => $input
-        ]);
-        TempatMakan::CariTempat($data);
-    }elseif($kriteria = "jarak"){
-
-    }
+    public function cari(request $request,$id){
+    $model = TempatMakan::CariTempat($id);
+    return view('detail_resto',['data'=>$model]);
     }
 
     public function edit(Request $request,$id){
@@ -74,7 +68,7 @@ class tempatmakanCtrl extends Controller
         $inputan = array([
                 'nama_tempatmakan' => $nama,
                 'alamat' => $alamat,
-                'foto' => $filename,
+                'foto_tempat' => $filename,
                 'id_pemilik' => $idpemilik,
                 'latitude' => $latitude,
                 'longitude' => $longitude,

@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Storage;
 class menumakananCtrl extends Controller
 { 
 
-    public function index(request $request,$id){
+    public function index(request $request,$id,$foto,$nama){
         $model = MenuMakanan::menumakan($id);
-        return Response::json($model,200);
+        return view('menu',['data'=>$model,'photos'=>$foto,'namas'=>$nama,'ids'=>$id]);
     }
 
     public function lihatsemuamenu(){
