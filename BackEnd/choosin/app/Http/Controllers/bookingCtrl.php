@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Booking;
+use App\MenuMakanan;
 use Response;
 use Illuminate\Support\Facades\Input;
 
@@ -11,6 +12,10 @@ use Illuminate\Support\Facades\Input;
 class bookingCtrl extends Controller
 {
     //
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
 
     function generate($qtd){
         //generator angka dan huruf dengan panjang length yg bisa di set sesuka.
@@ -37,13 +42,18 @@ class bookingCtrl extends Controller
         return Response::json($model,200);
     }
 
-    public function buat_booking(request $request,$id){
+    public function buat_bookingfrm(request $request,$id,$foto,$nama){
+        return view('booking',['ids'=>$id,'fotos'=>$foto,'namas'=>$nama]);
+    }
+
+    public function buat_booking(request $request){
+        $id = Input::get('iduser');
         $atasnama = Input::get('nama');
         $tanggal = Input::get('tanggal');
         $waktu = Input::get('waktu');
         $datetime = date('Y-m-d H:i', strtotime("$tanggal $waktu"));
         $idtempatmakan = Input::get('idtempatmakan');
-        $catatan = Input::get('catatan');
+        //$catatan = Input::get('catatan');
         $kode = bookingCtrl::generate(12);
         
         $data = array([
@@ -52,15 +62,11 @@ class bookingCtrl extends Controller
             'kode' => $kode,
             'tanggal' => $datetime,
             'id_tempat_makan' => $idtempatmakan,
-            'keterangan' => $catatan,
             'status' => '1',
         ]);
-        $model = Booking::tambah_booking($data);
-        if($model){
-            $model2 = Booking::dapat_latest_id($id);
-            return Response::json($model2,200);
-        }
-        return Response::json("failed",200);
+        $model2 = Booking::tambah_booking($data);
+        $model = MenuMakanan::menumakan($idtempatmakan);
+        return view('menu1',['kodes'=>$kode,'data'=>$model,'ids'=>$idtempatmakan]);
     }
 
 

@@ -39,6 +39,42 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('tel') ? ' has-error' : '' }}">
+                            <label for="tel" class="col-md-4 control-label">Nomer Hp</label>
+
+                            <div class="col-md-6">
+                                <input id="tel" type="tel" class="form-control" name="no_hp" value="{{ old('no_hp') }}" required>
+
+                                @if ($errors->has('tel'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('tel') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+                        <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
+                            <label for="gender" class="col-md-4 control-label">gender</label>
+
+                            <div class="col-md-6">
+                            
+                            <div class="radio">
+                                    <label><input type="radio" name="jenis_kelamin" value="laki-laki">laki laki</label>
+                                    </div>
+                                    <div class="radio">
+                                    <label><input type="radio" name="jenis_kelamin" value="perempuan">perempuan</label>
+                                    </div>
+                                @if ($errors->has('gender'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('gender') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 

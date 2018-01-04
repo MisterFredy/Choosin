@@ -49,8 +49,8 @@
               <span>Menu</span>
             </figcaption>
           </div></a>
-          
-          <a href="/booking/tambah/{{$baris->id_tempatmakan}}"><div class="detail-button uk-overlay uk-width-1-1 uk-text-left">
+
+          <a href="/booking/buat/{{$baris->id_tempatmakan}}/{{$baris->foto_tempat}}/{{$baris->nama_tempatmakan}}"><div class="detail-button uk-overlay uk-width-1-1 uk-text-left">
             <img class="" src="{{ URL::asset('img/booking_bg.jpg')}}" alt="Menu">
             <figcaption class="detail-menu-flex uk-overlay-panel uk-flex uk-flex-left uk-flex-middle">
               <span class="booking-button-text">Booking</span>
