@@ -53,6 +53,10 @@ Route::post('/booking/buatbook','bookingCtrl@buat_booking');
 Route::post('/booking/metodebayar/{kode}','bookingCtrl@metode_pembayaran');
 Route::post('/booking/konfirmasi/{kode}','bookingCtrl@konfirmasi_pembayaran');
 
+//booking detail
+Route::post('/booking/bookingdetail/tambah','bookingdetailCtrl@tambah');
+
+//storage
 Route::get('storage/menumakan/{filename}','filestorage@menumakanfile');
 Route::get('storage/tempatmakan/{filename}','filestorage@tempatmakanfile');
 Route::get('storage/userfile/{filename}','filestorage@userfile');

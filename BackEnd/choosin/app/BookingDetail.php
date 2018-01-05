@@ -41,4 +41,12 @@ class BookingDetail extends Model
         ->where('booking_detail.id_booking',$id)
         ->where('booking_detail.status','=','1')
         ->get();
+    }
+
+    public static function total($id){
+        $query = DB::table('booking_detail')
+        ->where('id_booking',$id)
+        ->sum('total_harga');
+        return $query;
+    }
 }

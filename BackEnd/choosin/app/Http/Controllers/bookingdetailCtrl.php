@@ -22,17 +22,19 @@ class bookingdetailCtrl extends Controller
         $idbooking = Input::get('idbooking');
         
 
-        foreach($namamakan as $key => $n){
-            $total = $harga[$key] * $jumlah[$key];
+        for($i=0; $i<count($makanan); $i++){
+            $total = $harga[$i] * $jumlah[$i];
             $data = array([
                 'id_booking' => $idbooking,
-                'id_menu' => $makanan,
+                'id_menu' => $makanan[$i],
                 'jumlah' => $jumlah[$key],
                 'total' => $total
             ]);
             $model = BookingDetail::tambah_booking_detail($data);
-        }    
-        return Response::json('sucess',200);
+        }
+        $model2 = BookingDetail::total($idbooking);
+
+        return view('pilih_bank',['totalduit'=>$model2]);
     }
 
     public function lihatrincian($id){

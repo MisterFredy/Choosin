@@ -65,8 +65,10 @@ class bookingCtrl extends Controller
             'status' => '1',
         ]);
         $model2 = Booking::tambah_booking($data);
+        $model3 = Booking::dapat_latest_id($id);
         $model = MenuMakanan::menumakan($idtempatmakan);
-        return view('menu1',['kodes'=>$kode,'data'=>$model,'ids'=>$idtempatmakan]);
+        return view('menubooking',['kodes'=>$kode,'data'=>$model,'ids'=>$idtempatmakan,'idbook'=>$model]);
+        //return view("menubooking",['kodes'=>$kode,'data'=>$model,'ids'=>$idtempatmakan,'idbook'=>$model3]);
     }
 
 
