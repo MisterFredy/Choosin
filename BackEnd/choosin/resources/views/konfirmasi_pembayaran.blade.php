@@ -4,15 +4,15 @@
         <title>Konfirmasi Pembayaran</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="assets/css/uikit.min.css" />
-        <link rel="stylesheet" type="text/css" href="assets/css/custom.css" />
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/uikit.min.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/custom.css')}}" />
 
     </head>
     <body class="uk-height-1-1" style="padding-bottom: 40px;">
 
     <div class="uk-vertical-align" style="height: 35%;">
       <div class="spash-top-container uk-text-center uk-vertical-align-middle">
-        <img class="splash-top-img uk-responsive-height uk-responsive-width" src="assets/img/logo.png" alt="Logo">
+        <img class="splash-top-img uk-responsive-height uk-responsive-width" src="{{ URL::asset('img/logo.png')}}" alt="Logo">
       </div>
     </div>
 
@@ -40,8 +40,8 @@
 
 
     <!-- For Script -->
-    <script src="assets/js/jquery-3.2.1.min.js"></script>
-    <script src="assets/js/uikit.min.js"></script>
-    <script src="assets/js/custom.js"></script>
+    <script src="{{ URL::asset('js/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{ URL::asset('js/uikit.min.js')}}"></script>
+    <script src="{{ URL::asset('js/custom.js')}}"></script>
     </body>
 </html>

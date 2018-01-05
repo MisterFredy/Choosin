@@ -5,7 +5,7 @@
     
     <div class="uk-vertical-align" style="height: 100%;">
       <div class="spash-top-container uk-text-center uk-vertical-align-middle">
-        <img class="splash-img uk-responsive-height uk-responsive-width" src="{{ URL::asset('img/logo.png') }}" alt="Logo">
+        <img class="splash-img uk-responsive-height uk-responsive-width" src="{{ URL::asset('img/logo.png')}}" alt="Logo">
       </div>
     </div>
 

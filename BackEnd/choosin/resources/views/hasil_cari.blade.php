@@ -4,15 +4,15 @@
         <title>Home</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="assets/css/uikit.min.css" />
-        <link rel="stylesheet" type="text/css" href="assets/css/custom.css" />
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/uikit.min.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/custom.css')}}" />
 
     </head>
     <body class="uk-height-1-1">
 
     <div class="uk-vertical-align" style="height: 35%;">
       <div class="spash-top-container uk-text-center uk-vertical-align-middle">
-        <img class="splash-img uk-responsive-height uk-responsive-width" src="assets/img/logo.png" alt="Logo">
+        <img class="splash-img uk-responsive-height uk-responsive-width" src="{{ URL::asset('img/logo.png')}}" alt="Logo">
       </div>
     </div>
 
@@ -71,7 +71,7 @@
           <div class="uk-grid">
             <div class="uk-width-1-1">
               <div class="uk-grid hasil-cari-image-grid">
-                <div class="uk-width-2-5 uk-cover-background" style="background-image: url(assets/img/resto1.jpg);">
+                <div class="uk-width-2-5 uk-cover-background" style="background-image: {{ URL::asset('img/resto1.jpg')}};">
                 </div>
                 <div class="uk-width-3-5 hasil-cari-detail uk-flex uk-flex-middle">
                   <div class="uk-width-1-1">
@@ -91,13 +91,13 @@
 
     <div class="uk-container-center uk-text-center hasil-cari-orb-group">
       <p class="orb-created-by">Created By</p>
-      <img src="assets/img/orblogo.png" alt="Orb Logo">
+      <img src="{{ URL::asset('img/orblogo.png')}}" alt="Orb Logo">
     </div>
 
     <!-- For Script -->
 
-    <script src="assets/js/jquery-3.2.1.min.js"></script>
-    <script src="assets/js/uikit.min.js"></script>
-    <script src="assets/js/custom.js"></script>
+    <script src="{{ URL::asset('js/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{ URL::asset('js/uikit.min.js')}}"></script>
+    <script src="{{ URL::asset('js/custom.js')}}"></script>
     </body>
 </html>

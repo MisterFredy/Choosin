@@ -4,9 +4,9 @@
         <title>Menu</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="assets/css/uikit.min.css" />
-        <link rel="stylesheet" type="text/css" href="assets/css/custom.css" />
-
+          
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/uikit.min.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/custom.css')}}" />
     </head>
     <body class="uk-height-1-1">
 
@@ -19,14 +19,14 @@
 
     <div class="gambar-peta uk-width-1-1">
       <div>
-        <img src="assets/img/peta.jpg" alt="Peta">
+        <img src="{{ URL::asset('img/peta.jpg')}}" alt="Peta">
       </div>
     </div>
 
     <div class="uk-container jarak-kiri">
       <div class="uk-grid jarak-kiri">
         <div class="uk-width-1-5">
-          <a href=""><img src="assets/img/icon/icon_navi.png" alt=""></a>
+          <a href=""><img src="{{ URL::asset('img/icon/icon_navi.png')}}" alt=""></a>
         </div>
         <div class="uk-width-4-5">
           <div class="uk-grid uk-vertical-align jarak-kiri">
@@ -41,13 +41,13 @@
     <div class="uk-container vehicle-group">
       <div class="uk-grid">
         <div class="uk-width-1-3 uk-text-center">
-          <a href=""><img src="assets/img/icon/icon_car.png" alt="Icon Car"></a>
+          <a href=""><img src="{{ URL::asset('img/icon/icon_car.png')}}" alt="Icon Car"></a>
         </div>
         <div class="uk-width-1-3 uk-text-center">
-          <a href=""><img src="assets/img/icon/icon_bike.png" alt="Icon Bike"></a>
+          <a href=""><img src="{{ URL::asset('img/icon/icon_bike.png')}}" alt="Icon Bike"></a>
         </div>
         <div class="uk-width-1-3 uk-text-center">
-          <a href=""><img src="assets/img/icon/icon_walking.png" alt="Icon Walking"></a>
+          <a href=""><img src="{{ URL::asset('img/icon/icon_walking.png')}}" alt="Icon Walking"></a>
         </div>
       </div>
     </div>

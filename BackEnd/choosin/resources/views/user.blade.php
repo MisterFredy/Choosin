@@ -4,8 +4,9 @@
         <title>User</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="assets/css/uikit.min.css" />
-        <link rel="stylesheet" type="text/css" href="assets/css/custom.css" />
+           
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/uikit.min.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/custom.css')}}" />
 
     </head>
     <body class="uk-height-1-1">
@@ -13,12 +14,12 @@
         <ul class="uk-navbar-nav">
             <li><a href=""><i class="navbar-prev uk-icon-angle-left uk-icon-large"></i></a></li>
         </ul>
-        <div class="uk-navbar-content uk-navbar-center uk-navbar-brand"><img src="assets/img/logo.png" width="100" height="43" alt="Navbar Image"></div>
+        <div class="uk-navbar-content uk-navbar-center uk-navbar-brand"><img src="{{ URL::asset('img/logo.png')}}" width="100" height="43" alt="Navbar Image"></div>
     </nav>
 
     <div class="uk-vertical-align" style="height: 20%;padding-top: 50px; padding-bottom: 20px;">
       <div class="spash-top-container uk-text-center uk-vertical-align-middle">
-        <img style="box-shadow: 0px 6px 28px #000;" class="uk-border-circle" src="assets/img/profile.png" alt="Profile">
+        <img style="box-shadow: 0px 6px 28px #000;" class="uk-border-circle" src="{{ URL::asset('img/profile.png')}}" alt="Profile">
       </div>
     </div>
 
@@ -56,8 +57,8 @@
     </footer>
 
     <!-- For Script -->
-    <script src="assets/js/jquery-3.2.1.min.js"></script>
-    <script src="assets/js/uikit.min.js"></script>
-    <script src="assets/js/custom.js"></script>
+   <script src="{{ URL::asset('js/jquery-3.2.1.min.js')}}"></script>
+   <script src="{{ URL::asset('js/uikit.min.js')}}"></script>
+   <script src="{{ URL::asset('js/custom.js')}}"></script>
     </body>
 </html>
